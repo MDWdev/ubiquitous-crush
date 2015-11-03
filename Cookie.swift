@@ -37,7 +37,7 @@ enum CookieType: Int, CustomStringConvertible {
 
 // Printable has been changed to CustomStringConvertible
 
-class Cookie: CustomStringConvertible {
+class Cookie: CustomStringConvertible, Hashable {
     var column: Int
     var row: Int
     let cookieType: CookieType
@@ -47,9 +47,18 @@ class Cookie: CustomStringConvertible {
         return "type:\(cookieType) square:(\(column),\(row))"
     }
     
+    var hashValue: Int {
+        return row*10 + column
+    }
+    
     init(column: Int, row: Int, cookieType: CookieType) {
         self.column = column
         self.row = row
         self.cookieType = cookieType
     }
 }
+
+func ==(lhs: Cookie, rhs: Cookie) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row
+}
+
