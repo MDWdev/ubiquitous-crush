@@ -16,6 +16,15 @@
 		A123245C1BE92A7600D66882 /* UbiquitousCrushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123245B1BE92A7600D66882 /* UbiquitousCrushTests.swift */; };
 		A12324671BE92A7600D66882 /* UbiquitousCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12324661BE92A7600D66882 /* UbiquitousCrushUITests.swift */; };
 		A182CA3C1BE92BC60097628C /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A182CA3B1BE92BC60097628C /* Sprites.atlas */; };
+		A182CA411BE9328D0097628C /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA401BE9328D0097628C /* Cookie.swift */; };
+		A182CA431BE932C70097628C /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA421BE932C70097628C /* Array2D.swift */; };
+		A182CA451BE9330F0097628C /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA441BE9330F0097628C /* Level.swift */; };
+		A182CA471BE9334F0097628C /* Levels in Resources */ = {isa = PBXBuildFile; fileRef = A182CA461BE9334F0097628C /* Levels */; };
+		A182CA491BE9339B0097628C /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA481BE9339B0097628C /* Tile.swift */; };
+		A182CA4B1BE933E50097628C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA4A1BE933E50097628C /* Extensions.swift */; };
+		A182CA4D1BE934290097628C /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA4C1BE934290097628C /* Swap.swift */; };
+		A182CA4F1BE9347E0097628C /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A182CA4E1BE9347E0097628C /* Sounds */; };
+		A182CA521BE9355F0097628C /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A182CA511BE9355F0097628C /* Grid.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +60,15 @@
 		A12324661BE92A7600D66882 /* UbiquitousCrushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbiquitousCrushUITests.swift; sourceTree = "<group>"; };
 		A12324681BE92A7600D66882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A182CA3B1BE92BC60097628C /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		A182CA401BE9328D0097628C /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cookie.swift; path = ../Cookie.swift; sourceTree = "<group>"; };
+		A182CA421BE932C70097628C /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = ../Array2D.swift; sourceTree = "<group>"; };
+		A182CA441BE9330F0097628C /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		A182CA461BE9334F0097628C /* Levels */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Levels; sourceTree = "<group>"; };
+		A182CA481BE9339B0097628C /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
+		A182CA4A1BE933E50097628C /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		A182CA4C1BE934290097628C /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
+		A182CA4E1BE9347E0097628C /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		A182CA511BE9355F0097628C /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +124,7 @@
 				A182CA3D1BE92EF10097628C /* MODEL */,
 				A12324421BE92A7600D66882 /* AppDelegate.swift */,
 				A123244D1BE92A7600D66882 /* Assets.xcassets */,
-				A182CA3B1BE92BC60097628C /* Sprites.atlas */,
+				A182CA501BE9348A0097628C /* Resources */,
 				A12324521BE92A7600D66882 /* Info.plist */,
 			);
 			path = UbiquitousCrush;
@@ -133,6 +151,11 @@
 		A182CA3D1BE92EF10097628C /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
+				A182CA401BE9328D0097628C /* Cookie.swift */,
+				A182CA421BE932C70097628C /* Array2D.swift */,
+				A182CA441BE9330F0097628C /* Level.swift */,
+				A182CA481BE9339B0097628C /* Tile.swift */,
+				A182CA4C1BE934290097628C /* Swap.swift */,
 			);
 			name = MODEL;
 			sourceTree = "<group>";
@@ -141,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				A12324481BE92A7600D66882 /* GameViewController.swift */,
+				A182CA4A1BE933E50097628C /* Extensions.swift */,
 			);
 			name = CONTROL;
 			sourceTree = "<group>";
@@ -153,6 +177,17 @@
 				A123244F1BE92A7600D66882 /* LaunchScreen.storyboard */,
 			);
 			name = VIEW;
+			sourceTree = "<group>";
+		};
+		A182CA501BE9348A0097628C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A182CA511BE9355F0097628C /* Grid.atlas */,
+				A182CA4E1BE9347E0097628C /* Sounds */,
+				A182CA461BE9334F0097628C /* Levels */,
+				A182CA3B1BE92BC60097628C /* Sprites.atlas */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +294,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A182CA4F1BE9347E0097628C /* Sounds in Resources */,
+				A182CA471BE9334F0097628C /* Levels in Resources */,
 				A12324511BE92A7600D66882 /* LaunchScreen.storyboard in Resources */,
 				A123244E1BE92A7600D66882 /* Assets.xcassets in Resources */,
+				A182CA521BE9355F0097628C /* Grid.atlas in Resources */,
 				A123244C1BE92A7600D66882 /* Main.storyboard in Resources */,
 				A182CA3C1BE92BC60097628C /* Sprites.atlas in Resources */,
 			);
@@ -287,9 +325,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A182CA451BE9330F0097628C /* Level.swift in Sources */,
 				A12324471BE92A7600D66882 /* GameScene.swift in Sources */,
+				A182CA411BE9328D0097628C /* Cookie.swift in Sources */,
+				A182CA4B1BE933E50097628C /* Extensions.swift in Sources */,
+				A182CA491BE9339B0097628C /* Tile.swift in Sources */,
 				A12324491BE92A7600D66882 /* GameViewController.swift in Sources */,
 				A12324431BE92A7600D66882 /* AppDelegate.swift in Sources */,
+				A182CA431BE932C70097628C /* Array2D.swift in Sources */,
+				A182CA4D1BE934290097628C /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
