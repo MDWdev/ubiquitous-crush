@@ -1,25 +1,25 @@
 ////
-////  Extensions.swift
+////  ParseJSON.swift
 ////  UbiquitousCrush
 ////
-////  Created by Melissa on 11/3/15.
+////  Created by Melissa on 11/4/15.
 ////  Copyright © 2015 Melissa Webster. All rights reserved.
 ////
-
+////
 import Foundation
 
-extension Dictionary {
-    //    var newDictionary = NSDictionary?()
-    //    var newData = NSData?()
+struct ParseJSON {
+    var newDictionary = NSDictionary?()
+    var newData = NSData?()
     
-    func loadJSONFromBundle(firstData: String) -> NSDictionary {
+    func loadJSONFromBundle(firstData: String) -> Dictionary<String, AnyObject> {
         let newPath = getThePath(firstData)
         print(newPath)
         let newData = getTheData(newPath)
         print(newData.description)
         let newDict = makeTheDictionary(newData)
         print(newDict.description)
-        return (newDict as? NSDictionary)!
+        return newDict
     }
     
     func getThePath(filename: String) -> String {
@@ -30,7 +30,6 @@ extension Dictionary {
         } else {
             print("Can't find path to \(filename)")
         }
-        print(path)
         return path
     }
     
@@ -63,10 +62,7 @@ extension Dictionary {
         }
         return jsonDict!
     }
-    
-    
-    
+
     
 }
-
 

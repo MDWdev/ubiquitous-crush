@@ -25,6 +25,12 @@
 		A182CA4D1BE934290097628C /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA4C1BE934290097628C /* Swap.swift */; };
 		A182CA4F1BE9347E0097628C /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = A182CA4E1BE9347E0097628C /* Sounds */; };
 		A182CA521BE9355F0097628C /* Grid.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A182CA511BE9355F0097628C /* Grid.atlas */; };
+		A182CA541BEA8E020097628C /* ParseJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA531BEA8E020097628C /* ParseJSON.swift */; };
+		A182CA5A1BEA92260097628C /* Level_0.json in Resources */ = {isa = PBXBuildFile; fileRef = A182CA551BEA92260097628C /* Level_0.json */; };
+		A182CA5B1BEA92260097628C /* Level_1.json in Resources */ = {isa = PBXBuildFile; fileRef = A182CA561BEA92260097628C /* Level_1.json */; };
+		A182CA5C1BEA92260097628C /* Level_2.json in Resources */ = {isa = PBXBuildFile; fileRef = A182CA571BEA92260097628C /* Level_2.json */; };
+		A182CA5D1BEA92260097628C /* Level_3.json in Resources */ = {isa = PBXBuildFile; fileRef = A182CA581BEA92260097628C /* Level_3.json */; };
+		A182CA5E1BEA92260097628C /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = A182CA591BEA92260097628C /* Level_4.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		A182CA4C1BE934290097628C /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 		A182CA4E1BE9347E0097628C /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		A182CA511BE9355F0097628C /* Grid.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Grid.atlas; sourceTree = "<group>"; };
+		A182CA531BEA8E020097628C /* ParseJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseJSON.swift; sourceTree = "<group>"; };
+		A182CA551BEA92260097628C /* Level_0.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Level_0.json; path = Levels/Level_0.json; sourceTree = "<group>"; };
+		A182CA561BEA92260097628C /* Level_1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Level_1.json; path = Levels/Level_1.json; sourceTree = "<group>"; };
+		A182CA571BEA92260097628C /* Level_2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Level_2.json; path = Levels/Level_2.json; sourceTree = "<group>"; };
+		A182CA581BEA92260097628C /* Level_3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Level_3.json; path = Levels/Level_3.json; sourceTree = "<group>"; };
+		A182CA591BEA92260097628C /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Level_4.json; path = Levels/Level_4.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,11 @@
 		A12324411BE92A7600D66882 /* UbiquitousCrush */ = {
 			isa = PBXGroup;
 			children = (
+				A182CA551BEA92260097628C /* Level_0.json */,
+				A182CA561BEA92260097628C /* Level_1.json */,
+				A182CA571BEA92260097628C /* Level_2.json */,
+				A182CA581BEA92260097628C /* Level_3.json */,
+				A182CA591BEA92260097628C /* Level_4.json */,
 				A182CA3F1BE92F040097628C /* VIEW */,
 				A182CA3E1BE92EF70097628C /* CONTROL */,
 				A182CA3D1BE92EF10097628C /* MODEL */,
@@ -165,6 +182,7 @@
 			children = (
 				A12324481BE92A7600D66882 /* GameViewController.swift */,
 				A182CA4A1BE933E50097628C /* Extensions.swift */,
+				A182CA531BEA8E020097628C /* ParseJSON.swift */,
 			);
 			name = CONTROL;
 			sourceTree = "<group>";
@@ -295,8 +313,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A182CA4F1BE9347E0097628C /* Sounds in Resources */,
+				A182CA5D1BEA92260097628C /* Level_3.json in Resources */,
+				A182CA5C1BEA92260097628C /* Level_2.json in Resources */,
+				A182CA5B1BEA92260097628C /* Level_1.json in Resources */,
 				A182CA471BE9334F0097628C /* Levels in Resources */,
 				A12324511BE92A7600D66882 /* LaunchScreen.storyboard in Resources */,
+				A182CA5A1BEA92260097628C /* Level_0.json in Resources */,
+				A182CA5E1BEA92260097628C /* Level_4.json in Resources */,
 				A123244E1BE92A7600D66882 /* Assets.xcassets in Resources */,
 				A182CA521BE9355F0097628C /* Grid.atlas in Resources */,
 				A123244C1BE92A7600D66882 /* Main.storyboard in Resources */,
@@ -334,6 +357,7 @@
 				A12324431BE92A7600D66882 /* AppDelegate.swift in Sources */,
 				A182CA431BE932C70097628C /* Array2D.swift in Sources */,
 				A182CA4D1BE934290097628C /* Swap.swift in Sources */,
+				A182CA541BEA8E020097628C /* ParseJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

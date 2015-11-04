@@ -6,4 +6,6 @@
 //  Copyright © 2015 Melissa Webster. All rights reserved.
 //
 
-import Foundation
+class Tile {
+    
+}
