@@ -16,9 +16,20 @@ class Level {
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
     
     init(filename: String) {
-        
-
+        if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename) {
+            if let tilesArray: AnyObject = dictionary["tiles"] {
+                for (row, rowArray) in (tilesArray as! [[Int]]).enumerate() {
+                    let tileRow = NumRows - row - 1
+                    for (column, value) in rowArray.enumerate() {
+                        if value == 1 {
+                            tiles[column, tileRow] = Tile()
+                        }
+                    }
+                }
+            }
+        }
     }
+    
     
     func cookieAtColumn(column: Int, row: Int) -> Cookie? {
         assert(column >= 0 && column < NumColumns)
