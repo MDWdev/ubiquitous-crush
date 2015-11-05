@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     var scene: GameScene!
@@ -16,6 +17,20 @@ class GameViewController: UIViewController {
     var score = 0
     
     var tapGestureRecognizer: UITapGestureRecognizer!
+    
+    lazy var backgroundMusic: AVAudioPlayer = {
+        let url = NSBundle.mainBundle().URLForResource("Mining by Moonlight", withExtension: "mp3")
+        do {
+            let player = try AVAudioPlayer(contentsOfURL: url!)
+            player.prepareToPlay()
+            player.volume = 0.2
+            return player
+        }
+        catch {
+            fatalError ("Error loading \(url): \(error)")
+        }
+        
+    }()
     
     @IBOutlet weak var targetLabel: UILabel!
     @IBOutlet weak var movesLabel: UILabel!
@@ -81,6 +96,9 @@ class GameViewController: UIViewController {
         
         // Present the scene.
         skView.presentScene(scene)
+        
+        // Play the music
+        backgroundMusic.play()
         
         beginGame()
     }
