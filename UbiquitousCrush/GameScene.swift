@@ -54,6 +54,8 @@ class GameScene: SKScene {
         
         swipeFromColumn = nil
         swipeFromRow = nil
+        
+        SKLabelNode(fontNamed: "GillSans-BoldItalic")
     }
     
     func addTiles() {
@@ -217,6 +219,7 @@ class GameScene: SKScene {
     
     func animateMatchedCookies(chains: Set<Chain>, completion: () -> ()) {
         for chain in chains {
+            animateScoreForChain(chain)
             for cookie in chain.cookies {
                 if let sprite = cookie.sprite {
                     if sprite.actionForKey("removing") == nil {
@@ -281,6 +284,27 @@ class GameScene: SKScene {
             }
         }
         runAction(SKAction.waitForDuration(longestDuration), completion: completion)
+    }
+    
+    func animateScoreForChain(chain: Chain) {
+        // find the midpoint of the chain
+        let firstSprite = chain.firstCookie().sprite!
+        let lastSprite = chain.lastCookie().sprite!
+        let centerPosition = CGPoint(
+            x: (firstSprite.position.x + lastSprite.position.x) / 2,
+            y: (firstSprite.position.y + lastSprite.position.y) / 2 - 8)
+        
+        // add a label that floats up and disappears
+        let scoreLabel = SKLabelNode(fontNamed: "GillSans-BoldItalic")
+        scoreLabel.fontSize = 16
+        scoreLabel.text = String(format: "%ld", chain.score)
+        scoreLabel.position = centerPosition
+        scoreLabel.zPosition = 300
+        cookiesLayer.addChild(scoreLabel)
+        
+        let moveAction = SKAction.moveBy(CGVector(dx: 0, dy: 3), duration: 0.7)
+        moveAction.timingMode = .EaseOut
+        scoreLabel.runAction(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
