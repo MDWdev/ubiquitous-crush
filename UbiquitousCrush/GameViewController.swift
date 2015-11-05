@@ -76,16 +76,26 @@ class GameViewController: UIViewController {
                 self.view.userInteractionEnabled = true
             }
         }
-        
     }
     
     func handleMatches() {
         let chains = level.removeMatches()
+        if chains.count == 0 {
+            beginNextTurn()
+            return
+        }
         scene.animateMatchedCookies(chains) {
             let columns = self.level.fillHoles()
             self.scene.animateFallingCookies(columns) {
-                self.view.userInteractionEnabled = true
+                let columns = self.level.topUpCookies()
+                self.scene.animateNewCookies(columns) {
+                    self.handleMatches()
+                }
             }
         }
+    }
+    
+    func beginNextTurn() {
+        view.userInteractionEnabled = true
     }
 }
