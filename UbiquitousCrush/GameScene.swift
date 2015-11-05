@@ -322,6 +322,10 @@ class GameScene: SKScene {
         gameLayer.runAction(action, completion: completion)
     }
     
+    func removeAllCookieSprites() {
+        cookiesLayer.removeAllChildren()
+    }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         if selectionSprite.parent != nil && swipeFromColumn != nil {
             hideSelectionIndicator()
