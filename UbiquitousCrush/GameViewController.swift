@@ -110,10 +110,16 @@ class GameViewController: UIViewController {
         }
     }
     
+    func decrementMoves() {
+        --movesLeft
+        updateLabels()
+    }
+    
     func beginNextTurn() {
         level.resetComboMultiplier()
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
+        decrementMoves()
     }
     
     func updateLabels() {
