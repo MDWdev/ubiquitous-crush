@@ -77,6 +77,19 @@ class GameScene: SKScene {
             sprite.position = pointForColumn(cookie.column, row: cookie.row)
             cookiesLayer.addChild(sprite)
             cookie.sprite = sprite
+            // give each sprite a random delay then fade in
+            sprite.alpha = 0
+            sprite.xScale = 0.5
+            sprite.yScale = 0.5
+            
+            sprite.runAction(
+                SKAction.sequence([
+                    SKAction.waitForDuration(0.25, withRange: 0.5),
+                    SKAction.group([
+                        SKAction.fadeInWithDuration(0.25),
+                        SKAction.scaleTo(1.0, duration: 0.25)
+                        ])
+                    ]))
         }
     }
     
