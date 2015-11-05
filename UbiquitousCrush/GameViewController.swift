@@ -12,6 +12,13 @@ import SpriteKit
 class GameViewController: UIViewController {
     var scene: GameScene!
     var level: Level!
+    var movesLeft = 0
+    var score = 0
+    
+    @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var movesLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -22,6 +29,9 @@ class GameViewController: UIViewController {
     }
     
     func beginGame() {
+        movesLeft = level.maximumMoves
+        score = 0
+        updateLabels()
         shuffle()
     }
     
@@ -98,5 +108,11 @@ class GameViewController: UIViewController {
     func beginNextTurn() {
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
+    }
+    
+    func updateLabels() {
+        targetLabel.text = String(format: "%ld", level.targetScore)
+        movesLabel.text = String(format: "%ld", movesLeft)
+        scoreLabel.text = String(format: "%ld", score)
     }
 }
