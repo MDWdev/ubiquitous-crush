@@ -15,6 +15,7 @@
 		A12324511BE92A7600D66882 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A123244F1BE92A7600D66882 /* LaunchScreen.storyboard */; };
 		A123245C1BE92A7600D66882 /* UbiquitousCrushTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A123245B1BE92A7600D66882 /* UbiquitousCrushTests.swift */; };
 		A12324671BE92A7600D66882 /* UbiquitousCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12324661BE92A7600D66882 /* UbiquitousCrushUITests.swift */; };
+		A164CE671BEB990F0087B6BB /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A164CE661BEB990F0087B6BB /* Chain.swift */; };
 		A182CA3C1BE92BC60097628C /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A182CA3B1BE92BC60097628C /* Sprites.atlas */; };
 		A182CA411BE9328D0097628C /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA401BE9328D0097628C /* Cookie.swift */; };
 		A182CA431BE932C70097628C /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA421BE932C70097628C /* Array2D.swift */; };
@@ -70,6 +71,7 @@
 		A12324621BE92A7600D66882 /* UbiquitousCrushUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UbiquitousCrushUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12324661BE92A7600D66882 /* UbiquitousCrushUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbiquitousCrushUITests.swift; sourceTree = "<group>"; };
 		A12324681BE92A7600D66882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A164CE661BEB990F0087B6BB /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		A182CA3B1BE92BC60097628C /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		A182CA401BE9328D0097628C /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cookie.swift; path = ../Cookie.swift; sourceTree = "<group>"; };
 		A182CA421BE932C70097628C /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = ../Array2D.swift; sourceTree = "<group>"; };
@@ -141,17 +143,8 @@
 		A12324411BE92A7600D66882 /* UbiquitousCrush */ = {
 			isa = PBXGroup;
 			children = (
-				A182CA5F1BEAEA8F0097628C /* Chomp.wav */,
-				A182CA601BEAEA8F0097628C /* Drip.wav */,
-				A182CA611BEAEA8F0097628C /* Error.wav */,
-				A182CA621BEAEA8F0097628C /* Ka-Ching.wav */,
-				A182CA631BEAEA8F0097628C /* Mining by Moonlight.mp3 */,
-				A182CA641BEAEA8F0097628C /* Scrape.wav */,
-				A182CA551BEA92260097628C /* Level_0.json */,
-				A182CA561BEA92260097628C /* Level_1.json */,
-				A182CA571BEA92260097628C /* Level_2.json */,
-				A182CA581BEA92260097628C /* Level_3.json */,
-				A182CA591BEA92260097628C /* Level_4.json */,
+				A164CE641BEB97A40087B6BB /* SoundFiles */,
+				A164CE651BEB97B20087B6BB /* LevelFiles */,
 				A182CA3F1BE92F040097628C /* VIEW */,
 				A182CA3E1BE92EF70097628C /* CONTROL */,
 				A182CA3D1BE92EF10097628C /* MODEL */,
@@ -181,6 +174,31 @@
 			path = UbiquitousCrushUITests;
 			sourceTree = "<group>";
 		};
+		A164CE641BEB97A40087B6BB /* SoundFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A182CA5F1BEAEA8F0097628C /* Chomp.wav */,
+				A182CA601BEAEA8F0097628C /* Drip.wav */,
+				A182CA611BEAEA8F0097628C /* Error.wav */,
+				A182CA621BEAEA8F0097628C /* Ka-Ching.wav */,
+				A182CA631BEAEA8F0097628C /* Mining by Moonlight.mp3 */,
+				A182CA641BEAEA8F0097628C /* Scrape.wav */,
+			);
+			name = SoundFiles;
+			sourceTree = "<group>";
+		};
+		A164CE651BEB97B20087B6BB /* LevelFiles */ = {
+			isa = PBXGroup;
+			children = (
+				A182CA551BEA92260097628C /* Level_0.json */,
+				A182CA561BEA92260097628C /* Level_1.json */,
+				A182CA571BEA92260097628C /* Level_2.json */,
+				A182CA581BEA92260097628C /* Level_3.json */,
+				A182CA591BEA92260097628C /* Level_4.json */,
+			);
+			name = LevelFiles;
+			sourceTree = "<group>";
+		};
 		A182CA3D1BE92EF10097628C /* MODEL */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +207,7 @@
 				A182CA441BE9330F0097628C /* Level.swift */,
 				A182CA481BE9339B0097628C /* Tile.swift */,
 				A182CA4C1BE934290097628C /* Swap.swift */,
+				A164CE661BEB990F0087B6BB /* Chain.swift */,
 			);
 			name = MODEL;
 			sourceTree = "<group>";
@@ -374,6 +393,7 @@
 				A182CA411BE9328D0097628C /* Cookie.swift in Sources */,
 				A182CA4B1BE933E50097628C /* Extensions.swift in Sources */,
 				A182CA491BE9339B0097628C /* Tile.swift in Sources */,
+				A164CE671BEB990F0087B6BB /* Chain.swift in Sources */,
 				A12324491BE92A7600D66882 /* GameViewController.swift in Sources */,
 				A12324431BE92A7600D66882 /* AppDelegate.swift in Sources */,
 				A182CA431BE932C70097628C /* Array2D.swift in Sources */,
