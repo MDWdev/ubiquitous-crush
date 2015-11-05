@@ -67,10 +67,15 @@
                                 <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="-1" height="1"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="N41-PF-OHP">
+                                <rect key="frame" x="0.0" y="209" width="320" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="gameOverPanel" destination="N41-PF-OHP" id="ffJ-3X-j5q"/>
                         <outlet property="movesLabel" destination="Afg-yU-6nD" id="cEc-Yn-kfm"/>
                         <outlet property="scoreLabel" destination="seq-ul-X27" id="rEw-BQ-FGk"/>
                         <outlet property="targetLabel" destination="jES-6k-gw2" id="Gyj-aT-ye5"/>
