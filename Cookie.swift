@@ -9,11 +9,11 @@
 import SpriteKit
 
 enum CookieType: Int, CustomStringConvertible {
-    case Unknown = 0, PawPrint, YingYang, Clover, Flower, Crown, Butterfly
+    case Unknown = 0, Heart, YingYang, Clover, Flower, Crown, Butterfly
     
     var spriteName: String {
         let spriteNames = [
-            "PawPrint",
+            "Heart",
             "YingYang",
             "Clover",
             "Flower",

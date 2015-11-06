@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import Foundation
 
 class GameScene: SKScene {
     var swipeHandler: ((Swap) -> ())?
