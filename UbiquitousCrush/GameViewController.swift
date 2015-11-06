@@ -86,7 +86,7 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
         
-        level = Level(filename: "Level_1")
+        level = Level(filename: "Level_5")
         scene.level = level
         scene.addTiles()
         
