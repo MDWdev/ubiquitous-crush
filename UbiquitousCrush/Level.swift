@@ -53,9 +53,9 @@ class Level {
     func shuffle() -> Set<Cookie> {
         var set: Set<Cookie>
         repeat {
-        set = createInitialCookies()
-        detectPossibleSwaps()
-        print("possible Swaps: \(possibleSwaps)")
+            set = createInitialCookies()
+            detectPossibleSwaps()
+            print("possible Swaps: \(possibleSwaps)")
         }
         while possibleSwaps.count == 0
         
