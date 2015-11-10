@@ -55,7 +55,7 @@ class Level {
         repeat {
             set = createInitialCookies()
             detectPossibleSwaps()
-            print("possible Swaps: \(possibleSwaps)")
+//            print("possible Swaps: \(possibleSwaps)")
         }
         while possibleSwaps.count == 0
         

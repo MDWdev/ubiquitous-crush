@@ -38,6 +38,7 @@
 		A182CA681BEAEA8F0097628C /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = A182CA621BEAEA8F0097628C /* Ka-Ching.wav */; };
 		A182CA691BEAEA8F0097628C /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A182CA631BEAEA8F0097628C /* Mining by Moonlight.mp3 */; };
 		A182CA6A1BEAEA8F0097628C /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = A182CA641BEAEA8F0097628C /* Scrape.wav */; };
+		A1956FE91BF2597F00EB908F /* LevelSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1956FE81BF2597F00EB908F /* LevelSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		A182CA621BEAEA8F0097628C /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Ka-Ching.wav"; path = "Sounds/Ka-Ching.wav"; sourceTree = "<group>"; };
 		A182CA631BEAEA8F0097628C /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mining by Moonlight.mp3"; path = "Sounds/Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		A182CA641BEAEA8F0097628C /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Scrape.wav; path = Sounds/Scrape.wav; sourceTree = "<group>"; };
+		A1956FE81BF2597F00EB908F /* LevelSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			children = (
 				A12324481BE92A7600D66882 /* GameViewController.swift */,
 				A182CA4A1BE933E50097628C /* Extensions.swift */,
+				A1956FE81BF2597F00EB908F /* LevelSelectViewController.swift */,
 			);
 			name = CONTROL;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1956FE91BF2597F00EB908F /* LevelSelectViewController.swift in Sources */,
 				A182CA451BE9330F0097628C /* Level.swift in Sources */,
 				A12324471BE92A7600D66882 /* GameScene.swift in Sources */,
 				A182CA411BE9328D0097628C /* Cookie.swift in Sources */,
