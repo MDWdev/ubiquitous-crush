@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var level: Level!
     var movesLeft = 0
     var score = 0
+    var levelCount = 0
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
@@ -29,7 +30,6 @@ class GameViewController: UIViewController {
         catch {
             fatalError ("Error loading \(url): \(error)")
         }
-        
     }()
     
     @IBOutlet weak var targetLabel: UILabel!
@@ -37,7 +37,6 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var gameOverPanel: UIImageView!
     @IBOutlet weak var shuffleButton: UIButton!
-    
     
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -64,19 +63,19 @@ class GameViewController: UIViewController {
         scene.addSpritesForCookies(newCookies)
     }
     
-// Comment >1<
-//    override func supportedInterfaceOrientations() -> Int {
-//        return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
-//    }
-    
-    // use this instead of return as Int? Save >1< commented code unless that doesn't work!
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.AllButUpsideDown
     }
     
+    override func viewWillAppear(animated: Bool) {
+        configureView()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    func configureView() {
         // Configure the view.
         let skView = view as! SKView
         skView.multipleTouchEnabled = false
@@ -85,13 +84,10 @@ class GameViewController: UIViewController {
         // Create and configure the scene.
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
-        
-        level = Level(filename: "Level_5")
-        scene.level = level
+        let thisLevel = callLevel(levelCount)
+        scene.level = thisLevel
         scene.addTiles()
-        
         scene.swipeHandler = handleSwipe
-        
         gameOverPanel.hidden = true
         
         // Present the scene.
@@ -99,18 +95,22 @@ class GameViewController: UIViewController {
         
         // Play the music
         backgroundMusic.play()
-        
         beginGame()
+    }
+    
+    func callLevel(levelNumber: Int) -> Level {
+        print("level # in callLevel: \(levelNumber)")
+        // take 1 away from levelNumber to instantiate correct level file
+        level = Level(filename: "Level_\(levelNumber - 1)")
+        return level
     }
     
     func handleSwipe(swap: Swap) {
         view.userInteractionEnabled = false
-        
         if level.isPossibleSwap(swap) {
             level.performSwap(swap)
             scene.animateSwap(swap, completion: handleMatches)
             self.view.userInteractionEnabled = true
-        
         } else {
             scene.animateInvalidSwap(swap) {
                 self.view.userInteractionEnabled = true
@@ -142,8 +142,9 @@ class GameViewController: UIViewController {
     func decrementMoves() {
         --movesLeft
         updateLabels()
-        
         if score >= level.targetScore {
+            levelCount++
+            print("Level Count after beat level: \(levelCount)")
             gameOverPanel.image = UIImage(named: "LevelComplete")
             showGameOver()
         } else if movesLeft == 0 {
@@ -169,12 +170,10 @@ class GameViewController: UIViewController {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
         shuffleButton.hidden = true
-        
         scene.animateGameOver() {
-            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hideGameOver")
+            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backToLevelPicker")
             self.view.addGestureRecognizer(self.tapGestureRecognizer)
             }
-        
     }
     
     func hideGameOver() {
@@ -184,8 +183,13 @@ class GameViewController: UIViewController {
         gameOverPanel.hidden = true
         scene.userInteractionEnabled = true
         
-        beginGame()
+//        beginGame()
     }
+    
+    func backToLevelPicker() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func shuffleButtonPressed(_: AnyObject) {
         shuffle()
         decrementMoves()
