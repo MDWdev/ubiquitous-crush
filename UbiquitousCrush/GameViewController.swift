@@ -187,11 +187,16 @@ class GameViewController: UIViewController {
     }
     
     func backToLevelPicker() {
+        stopMusic()
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shuffleButtonPressed(_: AnyObject) {
         shuffle()
         decrementMoves()
+    }
+    
+    func stopMusic() {
+        backgroundMusic.stop()
     }
 }
