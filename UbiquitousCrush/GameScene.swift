@@ -322,13 +322,13 @@ class GameScene: SKScene {
         scoreLabel.runAction(SKAction.sequence([moveAction, SKAction.removeFromParent()]))
     }
     
-    func animateGameOver(completion: () -> ()) {
+    func animateLevelLost(completion: () -> ()) {
         let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
         action.timingMode = .EaseIn
         gameLayer.runAction(action, completion: completion)
     }
     
-    func animateBeginGame(completion: () -> ()) {
+    func animateStartLevel(completion: () -> ()) {
         gameLayer.hidden = false
         gameLayer.position = CGPoint(x: 0, y: size.height)
         let action = SKAction.moveBy(CGVector(dx: 0, dy: -size.height), duration: 0.3)
