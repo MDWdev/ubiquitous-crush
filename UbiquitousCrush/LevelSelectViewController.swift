@@ -10,7 +10,8 @@ import UIKit
 
 class LevelSelectViewController: UIViewController {
     
-    var levelChoice = 0
+    var currentLevel = SingleStats.sharedInstance.levelReached
+    var levelChoice = Int()
     
     @IBOutlet weak var level1Button: UIButton!
     @IBOutlet weak var level2Button: UIButton!
@@ -26,11 +27,14 @@ class LevelSelectViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
         let levelSelectButtons = [level1Button, level2Button, level3Button, level4Button, level5Button, level6Button]
-        levelChoice++
-        print("level at viewWillAppear in Level Select: \(levelChoice)")
+        currentLevel = SingleStats.sharedInstance.levelReached
+        print("level at viewWillAppear in Level Select: \(currentLevel)")
+        print("Most recent score stored now back in Level Select: \(SingleStats.sharedInstance.levelScore)")
+        
         for button in levelSelectButtons {
-            if levelChoice >= button.tag {
+            if currentLevel >= button.tag {
                 button.hidden = false
             } else {
                 button.hidden = true
@@ -43,18 +47,36 @@ class LevelSelectViewController: UIViewController {
     }
 
     @IBAction func levelToPlayButtonPress(sender: UIButton) {
+        // button.tag's match with level file numbering ie: button for level 1, tag = 0, file to play = Level_0
         levelChoice = sender.tag
-        print(levelChoice)
-        
-        let alert = UIAlertController(title: "",
-            message: "Level: \(levelChoice)",
+        if levelChoice == currentLevel {
+            let alert = UIAlertController(title: "\(levelChoice)",
+                message: "Good Luck!",
+                preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "Play",
+                style :UIAlertActionStyle.Default,
+                handler: { action in self.playGame(self.currentLevel)
+            }))
+            presentViewController(alert, animated: true, completion:nil)
+        }
+        else {
+            let alert = UIAlertController(title: "\(levelChoice)",
+            message:  "Are You Sure?",
             preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "Yes",
+                style: UIAlertActionStyle.Default,
+                handler: { action in self.playGame(self.levelChoice)
+            }))
+            alert.addAction(UIAlertAction(title: "No",
+                style: UIAlertActionStyle.Cancel,
+                handler: { action in self.dismissViewControllerAnimated(false, completion: nil)
+            }))
+            presentViewController(alert, animated: true, completion: nil)
+        }
         
-        alert.addAction(UIAlertAction(title: "Play",
-            style :UIAlertActionStyle.Default,
-            handler: { action in self.playGame(self.levelChoice)
-        }))
-        presentViewController(alert, animated: true, completion:nil)
+        
     }
 
     func playGame(number: Int) {

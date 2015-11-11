@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     var movesLeft = 0
     var score = 0
     var levelCount = 0
+    var currentLevel = SingleStats.sharedInstance.levelReached
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
@@ -44,23 +45,6 @@ class GameViewController: UIViewController {
     
     override func shouldAutorotate() -> Bool {
         return true
-    }
-    
-    func beginGame() {
-        movesLeft = level.maximumMoves
-        score = 0
-        updateLabels()
-        level.resetComboMultiplier()
-        scene.animateBeginGame() {
-            self.shuffleButton.hidden = false
-        }
-        shuffle()
-    }
-    
-    func shuffle() {
-        scene.removeAllCookieSprites()
-        let newCookies = level.shuffle()
-        scene.addSpritesForCookies(newCookies)
     }
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -95,16 +79,33 @@ class GameViewController: UIViewController {
         
         // Play the music
         backgroundMusic.play()
-        beginGame()
+        startLevel()
     }
     
     func callLevel(levelNumber: Int) -> Level {
         print("level # in callLevel: \(levelNumber)")
         // take 1 away from levelNumber to instantiate correct level file
-        level = Level(filename: "Level_\(levelNumber - 1)")
+        level = Level(filename: "Level_\(levelNumber)")
         return level
     }
     
+    func startLevel() {
+        movesLeft = level.maximumMoves
+        score = 0
+        updateLabels()
+        level.resetComboMultiplier()
+        scene.animateStartLevel() {
+            self.shuffleButton.hidden = false
+        }
+        shuffle()
+    }
+    
+    func shuffle() {
+        scene.removeAllCookieSprites()
+        let newCookies = level.shuffle()
+        scene.addSpritesForCookies(newCookies)
+    }
+
     func handleSwipe(swap: Swap) {
         view.userInteractionEnabled = false
         if level.isPossibleSwap(swap) {
@@ -121,7 +122,7 @@ class GameViewController: UIViewController {
     func handleMatches() {
         let chains = level.removeMatches()
         if chains.count == 0 {
-            beginNextTurn()
+            beginNextSwapAttempt()
             return
         }
         scene.animateMatchedCookies(chains) {
@@ -144,16 +145,18 @@ class GameViewController: UIViewController {
         updateLabels()
         if score >= level.targetScore {
             levelCount++
-            print("Level Count after beat level: \(levelCount)")
+            SingleStats.sharedInstance.levelScore = score
+            SingleStats.sharedInstance.refreshStats(levelCount, newScore: score)
+            print("Current level after beat level: \(SingleStats.sharedInstance.levelReached)")
             gameOverPanel.image = UIImage(named: "LevelComplete")
-            showGameOver()
+            showLevelOver()
         } else if movesLeft == 0 {
-            gameOverPanel.image = UIImage(named: "GameOver")
-            showGameOver()
+            gameOverPanel.image = UIImage(named: "LevelLost")
+            showLevelOver()
         }
     }
     
-    func beginNextTurn() {
+    func beginNextSwapAttempt() {
         level.resetComboMultiplier()
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
@@ -166,24 +169,21 @@ class GameViewController: UIViewController {
         scoreLabel.text = String(format: "%ld", score)
     }
     
-    func showGameOver() {
+    func showLevelOver() {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
         shuffleButton.hidden = true
-        scene.animateGameOver() {
+        scene.animateLevelLost() {
             self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backToLevelPicker")
             self.view.addGestureRecognizer(self.tapGestureRecognizer)
-            }
+        }
     }
     
-    func hideGameOver() {
+    func hideLevelOver() {
         view.removeGestureRecognizer(tapGestureRecognizer)
         tapGestureRecognizer = nil
-        
         gameOverPanel.hidden = true
         scene.userInteractionEnabled = true
-        
-//        beginGame()
     }
     
     func backToLevelPicker() {
