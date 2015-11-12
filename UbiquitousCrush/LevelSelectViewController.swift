@@ -50,7 +50,7 @@ class LevelSelectViewController: UIViewController {
         // button.tag's match with level file numbering ie: button for level 1, tag = 0, file to play = Level_0
         levelChoice = sender.tag
         if levelChoice == currentLevel {
-            let alert = UIAlertController(title: "\(levelChoice)",
+            let alert = UIAlertController(title: "\(levelChoice + 1)",
                 message: "Good Luck!",
                 preferredStyle: UIAlertControllerStyle.Alert)
             
