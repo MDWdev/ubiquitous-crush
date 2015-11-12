@@ -75,8 +75,6 @@ class LevelSelectViewController: UIViewController {
             }))
             presentViewController(alert, animated: true, completion: nil)
         }
-        
-        
     }
 
     func playGame(number: Int) {
@@ -90,6 +88,10 @@ class LevelSelectViewController: UIViewController {
             let vc = segue.destinationViewController as! GameViewController
             vc.levelCount = levelChoice
         }
+    }
+    
+    @IBAction func myUnwindAction(unwindSegue: UIStoryboardSegue) {
+        
     }
 
 

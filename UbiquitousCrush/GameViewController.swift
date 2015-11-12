@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 import AVFoundation
+import GameKit
 
 class GameViewController: UIViewController {
     var scene: GameScene!
@@ -17,6 +18,8 @@ class GameViewController: UIViewController {
     var score = 0
     var levelCount = 0
     var currentLevel = SingleStats.sharedInstance.levelReached
+    
+    
     
     var tapGestureRecognizer: UITapGestureRecognizer!
     
@@ -180,8 +183,8 @@ class GameViewController: UIViewController {
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
         shuffleButton.hidden = true
-        scene.animateLevelLost() {
-            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "backToLevelPicker")
+        scene.animateLevelOver() {
+            self.tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "showScoreScreen")
             self.view.addGestureRecognizer(self.tapGestureRecognizer)
         }
     }
@@ -207,5 +210,9 @@ class GameViewController: UIViewController {
         if backgroundMusic.playing {
             backgroundMusic.stop()
         }
+    }
+    
+    func showScoreScreen() {
+        performSegueWithIdentifier("showScore", sender: nil)
     }
 }
