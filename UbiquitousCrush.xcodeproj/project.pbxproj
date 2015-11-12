@@ -19,6 +19,7 @@
 		A12324671BE92A7600D66882 /* UbiquitousCrushUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12324661BE92A7600D66882 /* UbiquitousCrushUITests.swift */; };
 		A164CE671BEB990F0087B6BB /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A164CE661BEB990F0087B6BB /* Chain.swift */; };
 		A16809CD1BF3E7FC008FC6B5 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16809CC1BF3E7FC008FC6B5 /* WelcomeViewController.swift */; };
+		A169EE691BF4D6B40096CCBA /* ScoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A169EE681BF4D6B40096CCBA /* ScoreScreen.swift */; };
 		A18181241BF40CD700B7545E /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18181231BF40CD700B7545E /* InfoViewController.swift */; };
 		A182CA3C1BE92BC60097628C /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = A182CA3B1BE92BC60097628C /* Sprites.atlas */; };
 		A182CA411BE9328D0097628C /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182CA401BE9328D0097628C /* Cookie.swift */; };
@@ -80,6 +81,7 @@
 		A12324681BE92A7600D66882 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A164CE661BEB990F0087B6BB /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		A16809CC1BF3E7FC008FC6B5 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		A169EE681BF4D6B40096CCBA /* ScoreScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScreen.swift; sourceTree = "<group>"; };
 		A18181231BF40CD700B7545E /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A182CA3B1BE92BC60097628C /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		A182CA401BE9328D0097628C /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cookie.swift; path = ../Cookie.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				A1956FE81BF2597F00EB908F /* LevelSelectViewController.swift */,
 				A16809CC1BF3E7FC008FC6B5 /* WelcomeViewController.swift */,
 				A18181231BF40CD700B7545E /* InfoViewController.swift */,
+				A169EE681BF4D6B40096CCBA /* ScoreScreen.swift */,
 			);
 			name = CONTROL;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 				A182CA411BE9328D0097628C /* Cookie.swift in Sources */,
 				A182CA4B1BE933E50097628C /* Extensions.swift in Sources */,
 				A10987B01BF3827C0011306E /* SingleStats.swift in Sources */,
+				A169EE691BF4D6B40096CCBA /* ScoreScreen.swift in Sources */,
 				A16809CD1BF3E7FC008FC6B5 /* WelcomeViewController.swift in Sources */,
 				A182CA491BE9339B0097628C /* Tile.swift in Sources */,
 				A164CE671BEB990F0087B6BB /* Chain.swift in Sources */,
