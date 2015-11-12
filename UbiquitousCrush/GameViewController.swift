@@ -52,11 +52,18 @@ class GameViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        print(NSUserDefaults.standardUserDefaults().boolForKey("playMusic"))
         configureView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func playMusic() {
+        if NSUserDefaults.standardUserDefaults().boolForKey("playMusic") == true {
+            backgroundMusic.play()
+        }
     }
     
     func configureView() {
@@ -78,7 +85,7 @@ class GameViewController: UIViewController {
         skView.presentScene(scene)
         
         // Play the music
-        backgroundMusic.play()
+        playMusic()
         startLevel()
     }
     
@@ -197,6 +204,8 @@ class GameViewController: UIViewController {
     }
     
     func stopMusic() {
-        backgroundMusic.stop()
+        if backgroundMusic.playing {
+            backgroundMusic.stop()
+        }
     }
 }
