@@ -29,7 +29,6 @@ class ScoreScreen: UIViewController, GKGameCenterControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         authenticateLocalPlayer()
-        saveHighscore(scoreToLeaderboard)
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +49,7 @@ class ScoreScreen: UIViewController, GKGameCenterControllerDelegate {
     
     //shows leaderboard screen
     func showLeader() {
+        saveHighscore(scoreToLeaderboard)
         let gc: GKGameCenterViewController = GKGameCenterViewController()
         gc.gameCenterDelegate = self
         gc.viewState = GKGameCenterViewControllerState.Leaderboards
